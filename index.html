@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>❤️ DETALLE ❤️</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Mensaje romántico -->
+  <div class="mensaje-contenedor">
+    <div class="mensaje-principal">💖 Ingresar fecha, para ver detalle😍</div>
+    <div class="corazones-flotando"></div>
+  </div>
+
+  <!-- Calculadora -->
+  <div class="calculadora">
+    <div class="display" id="display">❤️❤️❤️</div>
+    <div class="teclado">
+      <button onclick="agregarNumero('7')">7</button>
+      <button onclick="agregarNumero('8')">8</button>
+      <button onclick="agregarNumero('9')">9</button>
+      <button class="especial" onclick="borrar()">⌫</button>
+
+      <button onclick="agregarNumero('4')">4</button>
+      <button onclick="agregarNumero('5')">5</button>
+      <button onclick="agregarNumero('6')">6</button>
+      <button class="especial" onclick="limpiar()">CE</button>
+
+      <button onclick="agregarNumero('1')">1</button>
+      <button onclick="agregarNumero('2')">2</button>
+      <button onclick="agregarNumero('3')">3</button>
+      <button class="especial" onclick="verificarFecha()">✔</button>
+
+      <button onclick="agregarNumero('0')" class="cero">0</button>
+    </div>
+  </div>
+
+  <!-- Modal de éxito -->
+  <div id="modalExito" class="modal oculto">
+    <div class="flores"></div>
+    <div class="contenido">
+      <h2>🎉 ¡Correcto ! 🌸❤️</h2>
+      <p>Ahora verás tu sorpresa especial ✨</p>
+      <button onclick="irASorpresa()">Ver sorpresa 💕</button>
+    </div>
+  </div>
+
+  <!-- Modal de error -->
+  <div id="modalError" class="modal oculto">
+    <div class="flores"></div>
+    <div class="contenido error">
+      <h2>😜 Ups...</h2>
+      <p>No es esa la fecha, vuelve a intentar ❤️</p>
+      <button onclick="cerrarError()">Intentar otra vez ❤️</button>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

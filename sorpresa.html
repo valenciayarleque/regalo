@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>😍Sorpresa 😍 </title>
+  <!-- Fuente manuscrita para la frase -->
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script:700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sorpresa.css">
+</head>
+<body>
+  <audio id="musica" src="flores_amarillas.mp3" preload="auto" loop></audio>
+  
+  <div class="contenedor-sorpresa">
+    <h1>🌻 ¡Feliz día de las flores amarillas! 🌻</h1>
+    <div class="contenido-central">
+      <div class="pocoyo-flores">
+        <img src="pocoyo.png" alt="pocoyo" />
+      </div>
+      <p class="mensaje" id="frase"></p>
+    </div>
+    <div class="controles-musica">
+      <button id="btnMusica" onclick="toggleMusica()">▶️ Reproducir</button>
+      <button onclick="masSorpresa()">Más sorpresa ❤️</button>
+    </div>
+  </div>
+
+  <div id="magia"></div>
+
+  <script src="sorpresa.js"></script>
+</body>
+</html>

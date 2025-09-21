@@ -1,0 +1,300 @@
+/* General adjustments for all screens - Mobile First */
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffe6f0 0%, #fff0b3 50%, #ffd6e0 100%);
+  position: relative;
+  font-size: 16px; /* Base font size for scaling */
+}
+
+/* --- Animated Background and General Design --- */
+.fondo-corazones {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.fondo-corazones span {
+  position: absolute;
+  font-size: 1.25rem; /* 20px - Scalable decorative elements */
+  opacity: 0.6;
+  animation-name: flotarFondo;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  color: #ff69b4;
+}
+
+@keyframes flotarFondo {
+  0% { transform: translateY(100vh) scale(var(--scale)) rotate(0deg); opacity: var(--opacity); }
+  50% { transform: translateY(50vh) scale(calc(var(--scale)*1.2)) rotate(15deg); }
+  100% { transform: translateY(-10vh) scale(var(--scale)) rotate(-15deg); opacity: 0; }
+}
+
+/* Main Message and Floating Hearts */
+.mensaje-contenedor {
+  position: relative;
+  text-align: center;
+  margin-bottom: 1.25rem; /* 20px */
+  z-index: 1;
+}
+
+.mensaje-principal {
+  font-size: 1.75rem; /* 28px - Scalable font size */
+  font-weight: bold;
+  color: #ff69b4;
+  animation: flotarBrillo 3s ease-in-out infinite alternate;
+  text-shadow: 2px 2px 5px #fff, 0 0 15px #ffb6c1;
+}
+
+.corazones-flotando span {
+  position: absolute;
+  font-size: 1.5rem; /* 24px - Scalable font size */
+  animation-name: subirCorazon;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  opacity: 0.8;
+  transform-origin: center;
+}
+
+@keyframes flotarBrillo {
+  0% { transform: translateY(0px); color: #ff69b4; text-shadow: 2px 2px 5px #fff, 0 0 10px #ffb6c1; }
+  50% { transform: translateY(-10px); color: #ff85c1; text-shadow: 2px 2px 10px #fff, 0 0 20px #ffb6c1; }
+  100% { transform: translateY(0px); color: #ff69b4; text-shadow: 2px 2px 5px #fff, 0 0 10px #ffb6c1; }
+}
+
+@keyframes subirCorazon {
+  0% { transform: translate(0px,0px) scale(var(--scale)) rotate(0deg); opacity: 0.8; }
+  50% { transform: translate(var(--x-mov),-30px) scale(calc(var(--scale)*1.1)) rotate(15deg); opacity: 1; }
+  100% { transform: translate(calc(var(--x-mov)*1.2),-60px) scale(var(--scale)) rotate(-15deg); opacity: 0; }
+}
+
+/* Calculator */
+.calculadora {
+  background: #fff;
+  border-radius: 1.25rem; /* 20px */
+  padding: 1.25rem; /* 20px */
+  box-shadow: 0px 0.3125rem 1.25rem rgba(0,0,0,0.2); /* 5px 20px */
+  width: 90%; /* Use percentage for responsiveness */
+  max-width: 400px; /* Limit maximum width */
+  text-align: center;
+  z-index: 1;
+}
+
+.display {
+  background: #fffbe6;
+  border: 2px solid #ffc400;
+  border-radius: 0.625rem; /* 10px */
+  height: 3.75rem; /* 60px */
+  line-height: 3.75rem; /* 60px */
+  font-size: 1.5rem; /* 24px */
+  margin-bottom: 0.9375rem; /* 15px */
+  overflow-x: auto;
+  text-align: right;
+  padding: 0 0.625rem; /* 10px */
+}
+
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem; /* 12px */
+}
+
+.teclado button {
+  background: #ffd6e0;
+  border: none;
+  padding: 1.125rem; /* 18px */
+  font-size: 1.25rem; /* 20px */
+  border-radius: 0.75rem; /* 12px */
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: bold;
+  width: 100%; /* Ensure buttons fill their grid space */
+}
+
+.teclado button:hover {
+  background: #ffb6c1;
+  transform: scale(1.05);
+}
+
+.teclado .especial {
+  background: #ffeb99;
+}
+
+.teclado .especial:hover {
+  background: #ffd633;
+}
+
+.teclado .cero {
+  grid-column: span 4;
+}
+
+/* Modals and Flowers */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,192,203,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.8s;
+  overflow: hidden;
+}
+
+.modal .contenido {
+  background: #fffaf0;
+  padding: 1.875rem; /* 30px */
+  border-radius: 1.25rem; /* 20px */
+  text-align: center;
+  box-shadow: 0 0.3125rem 1.25rem rgba(0,0,0,0.3); /* 5px 20px */
+  animation: pop 0.6s ease;
+  position: relative;
+  z-index: 2;
+  max-width: 90%; /* Ensure content doesn't overflow on smaller screens */
+}
+
+.modal .contenido.error {
+  background: #ffe6e6;
+}
+
+.modal h2 {
+  color: #e60073;
+  font-size: 1.625rem; /* 26px */
+  margin-bottom: 0.625rem; /* 10px */
+}
+
+.modal p {
+  color: #555;
+  font-size: 1.125rem; /* 18px */
+}
+
+.modal button {
+  margin-top: 0.9375rem; /* 15px */
+  padding: 0.625rem 1.25rem; /* 10px 20px */
+  background: #ffb6c1;
+  border: none;
+  border-radius: 0.625rem; /* 10px */
+  font-size: 1.125rem; /* 18px */
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal button:hover {
+  background: #ff80a0;
+  color: white;
+}
+
+.flores {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.flores span {
+  position: absolute;
+  display: inline-block;
+  font-size: 1.5rem; /* 24px */
+  animation: flotar 6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes flotar {
+  from {transform:translateY(100vh) scale(0.5); opacity:0.8;}
+  to {transform:translateY(-10vh) scale(1.2); opacity:0;}
+}
+
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
+@keyframes pop {
+  0% {transform:scale(0.5);}
+  100% {transform:scale(1);}
+}
+
+.oculto {
+  display: none;
+}
+
+/* Media Queries for Different Screen Sizes */
+
+/* For tablets and larger */
+@media (min-width: 576px) {
+  body {
+    font-size: 16px; /* Revert to base font size for tablets and up */
+  }
+
+  .calculadora {
+    width: 60%;
+    max-width: 350px;
+  }
+
+  .mensaje-principal {
+    font-size: 1.6rem; /* Adjusted font size for tablets */
+  }
+
+  .teclado button {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .fondo-corazones span {
+    font-size: 1.2rem;
+  }
+}
+
+/* For laptops and larger screens */
+@media (min-width: 992px) {
+  body {
+    font-size: 14px; /* Further reduced base font size for laptops */
+  }
+
+  .calculadora {
+    width: 40%;
+    max-width: 300px;
+  }
+
+  .mensaje-principal {
+    font-size: 1.4rem; /* Smaller font size for larger screens */
+  }
+}
+
+/* For extra-large screens */
+@media (min-width: 1200px) {
+  .calculadora {
+    width: 30%;
+    max-width: 250px;
+  }
+
+  .mensaje-principal {
+    font-size: 1.2rem; /* Even smaller font size for extra-large screens */
+  }
+}
+
+/* Touch support improvements */
+@media (pointer: coarse) {
+  .teclado button {
+    padding: 1rem; /* Increase padding for touch devices */
+    font-size: 1.1rem; /* Increase font size for touch devices */
+  }
+}
